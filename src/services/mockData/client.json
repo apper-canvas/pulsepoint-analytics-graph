@@ -1,0 +1,112 @@
+[
+  {
+    "id": "1",
+    "name": "TechFlow Solutions",
+    "industry": "Technology",
+    "contactInfo": {
+      "email": "contact@techflow.com",
+      "phone": "+1-555-0123",
+      "address": "123 Innovation Drive, San Francisco, CA 94105"
+    },
+    "createdAt": "2023-06-15T08:00:00Z"
+  },
+  {
+    "id": "2",
+    "name": "GreenEarth Consulting",
+    "industry": "Environmental Services",
+    "contactInfo": {
+      "email": "info@greenearth.com",
+      "phone": "+1-555-0124",
+      "address": "456 Eco Boulevard, Portland, OR 97205"
+    },
+    "createdAt": "2023-07-22T10:30:00Z"
+  },
+  {
+    "id": "3",
+    "name": "DataCore Analytics",
+    "industry": "Data Science",
+    "contactInfo": {
+      "email": "hello@datacore.com",
+      "phone": "+1-555-0125",
+      "address": "789 Analytics Plaza, Austin, TX 78701"
+    },
+    "createdAt": "2023-08-10T14:15:00Z"
+  },
+  {
+    "id": "4",
+    "name": "MedTech Innovations",
+    "industry": "Healthcare",
+    "contactInfo": {
+      "email": "support@medtech.com",
+      "phone": "+1-555-0126",
+      "address": "321 Medical Center Dr, Boston, MA 02115"
+    },
+    "createdAt": "2023-09-05T09:45:00Z"
+  },
+  {
+    "id": "5",
+    "name": "FinanceFirst Group",
+    "industry": "Financial Services",
+    "contactInfo": {
+      "email": "contact@financefirst.com",
+      "phone": "+1-555-0127",
+      "address": "654 Wall Street, New York, NY 10005"
+    },
+    "createdAt": "2023-10-12T16:20:00Z"
+  },
+  {
+    "id": "6",
+    "name": "EduTech Partners",
+    "industry": "Education Technology",
+    "contactInfo": {
+      "email": "info@edutech.com",
+      "phone": "+1-555-0128",
+      "address": "987 Learning Lane, Seattle, WA 98102"
+    },
+    "createdAt": "2023-11-18T11:10:00Z"
+  },
+  {
+    "id": "7",
+    "name": "RetailMax Corporation",
+    "industry": "Retail",
+    "contactInfo": {
+      "email": "hello@retailmax.com",
+      "phone": "+1-555-0129",
+      "address": "147 Commerce Street, Chicago, IL 60601"
+    },
+    "createdAt": "2023-12-03T13:55:00Z"
+  },
+  {
+    "id": "8",
+    "name": "CloudScale Systems",
+    "industry": "Cloud Computing",
+    "contactInfo": {
+      "email": "support@cloudscale.com",
+      "phone": "+1-555-0130",
+      "address": "258 Cloud Drive, Denver, CO 80202"
+    },
+    "createdAt": "2024-01-08T07:30:00Z"
+  },
+  {
+    "id": "9",
+    "name": "AgriTech Solutions",
+    "industry": "Agriculture Technology",
+    "contactInfo": {
+      "email": "contact@agritech.com",
+      "phone": "+1-555-0131",
+      "address": "369 Farm Road, Des Moines, IA 50309"
+    },
+    "createdAt": "2024-01-15T15:40:00Z"
+  },
+  {
+    "id": "10",
+    "name": "UrbanDesign Studio",
+    "industry": "Architecture & Design",
+    "contactInfo": {
+      "email": "info@urbandesign.com",
+      "phone": "+1-555-0132",
+      "address": "741 Design Avenue, Miami, FL 33101"
+    },
+    "createdAt": "2024-01-22T12:25:00Z"
+  }
+]

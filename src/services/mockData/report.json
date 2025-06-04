@@ -1,0 +1,151 @@
+[
+  {
+    "id": "1",
+    "clientId": "1",
+    "dateRange": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2024-01-31T23:59:59Z"
+    },
+    "metrics": {
+      "averageRating": 4.3,
+      "totalResponses": 45,
+      "responseRate": 78.5,
+      "sentimentScore": 86.2,
+      "topIssues": [
+        "Response time could be faster",
+        "Need better communication",
+        "Documentation needs improvement"
+      ],
+      "positiveHighlights": [
+        "Excellent technical quality",
+        "Professional team",
+        "Great problem-solving skills"
+      ]
+    },
+    "generatedAt": "2024-02-01T10:30:00Z"
+  },
+  {
+    "id": "2",
+    "clientId": "2",
+    "dateRange": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2024-01-31T23:59:59Z"
+    },
+    "metrics": {
+      "averageRating": 3.8,
+      "totalResponses": 32,
+      "responseRate": 64.0,
+      "sentimentScore": 76.4,
+      "topIssues": [
+        "Initial consultation could be better",
+        "Pricing transparency needed",
+        "Follow-up communication gaps"
+      ],
+      "positiveHighlights": [
+        "Good final deliverables",
+        "Knowledgeable team",
+        "Flexible approach"
+      ]
+    },
+    "generatedAt": "2024-02-01T10:45:00Z"
+  },
+  {
+    "id": "3",
+    "clientId": "3",
+    "dateRange": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2024-01-31T23:59:59Z"
+    },
+    "metrics": {
+      "averageRating": 4.7,
+      "totalResponses": 28,
+      "responseRate": 87.5,
+      "sentimentScore": 94.2,
+      "topIssues": [
+        "Minor delays in project timeline",
+        "Could use more frequent updates"
+      ],
+      "positiveHighlights": [
+        "Outstanding technical execution",
+        "Exceeded expectations",
+        "Excellent communication",
+        "Very professional team"
+      ]
+    },
+    "generatedAt": "2024-02-01T11:00:00Z"
+  },
+  {
+    "id": "4",
+    "clientId": "4",
+    "dateRange": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2024-01-31T23:59:59Z"
+    },
+    "metrics": {
+      "averageRating": 2.8,
+      "totalResponses": 18,
+      "responseRate": 45.0,
+      "sentimentScore": 56.0,
+      "topIssues": [
+        "Slow response times",
+        "Unclear communication",
+        "Missed deadlines",
+        "Quality below expectations"
+      ],
+      "positiveHighlights": [
+        "Eventually resolved issues",
+        "Willing to make corrections"
+      ]
+    },
+    "generatedAt": "2024-02-01T11:15:00Z"
+  },
+  {
+    "id": "5",
+    "clientId": "5",
+    "dateRange": {
+      "start": "2024-01-01T00:00:00Z",
+      "end": "2024-01-31T23:59:59Z"
+    },
+    "metrics": {
+      "averageRating": 4.9,
+      "totalResponses": 41,
+      "responseRate": 91.1,
+      "sentimentScore": 98.0,
+      "topIssues": [
+        "No significant issues reported"
+      ],
+      "positiveHighlights": [
+        "Perfect execution",
+        "Proactive communication",
+        "Exceeded all expectations",
+        "Highly professional",
+        "Outstanding results"
+      ]
+    },
+    "generatedAt": "2024-02-01T11:30:00Z"
+  },
+  {
+    "id": "6",
+    "clientId": "6",
+    "dateRange": {
+      "start": "2024-01-15T00:00:00Z",
+      "end": "2024-02-15T23:59:59Z"
+    },
+    "metrics": {
+      "averageRating": 4.4,
+      "totalResponses": 23,
+      "responseRate": 82.1,
+      "sentimentScore": 88.8,
+      "topIssues": [
+        "Could improve initial timeline estimates",
+        "More frequent progress updates needed"
+      ],
+      "positiveHighlights": [
+        "High attention to detail",
+        "Professional delivery",
+        "Great final results"
+      ]
+    },
+    "generatedAt": "2024-02-16T09:20:00Z"
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "id": "1",
+    "title": "Customer Satisfaction Survey",
+    "questions": [
+      {
+        "id": "1",
+        "type": "rating",
+        "text": "How would you rate the overall quality of our service?",
+        "options": []
+      },
+      {
+        "id": "2",
+        "type": "rating",
+        "text": "How satisfied are you with the response time?",
+        "options": []
+      },
+      {
+        "id": "3",
+        "type": "rating",
+        "text": "How likely are you to recommend us to others?",
+        "options": []
+      },
+      {
+        "id": "4",
+        "type": "text",
+        "text": "Please share any additional comments or suggestions:",
+        "options": []
+      }
+    ],
+    "clientIds": ["1", "2", "3"],
+    "isActive": true,
+    "createdAt": "2024-01-10T09:00:00Z"
+  },
+  {
+    "id": "2",
+    "title": "Project Completion Feedback",
+    "questions": [
+      {
+        "id": "1",
+        "type": "scale",
+        "text": "Rate the project delivery timeline (1-10):",
+        "options": []
+      },
+      {
+        "id": "2",
+        "type": "multiple",
+        "text": "Which aspect of the project impressed you most?",
+        "options": [
+          "Communication",
+          "Technical Quality",
+          "Problem Solving",
+          "Innovation",
+          "Timeline Adherence"
+        ]
+      },
+      {
+        "id": "3",
+        "type": "text",
+        "text": "What could we have done better?",
+        "options": []
+      }
+    ],
+    "clientIds": ["4", "5", "6"],
+    "isActive": true,
+    "createdAt": "2024-01-12T14:30:00Z"
+  },
+  {
+    "id": "3",
+    "title": "Support Experience Survey",
+    "questions": [
+      {
+        "id": "1",
+        "type": "rating",
+        "text": "How would you rate our support team's helpfulness?",
+        "options": []
+      },
+      {
+        "id": "2",
+        "type": "rating",
+        "text": "How satisfied are you with the resolution time?",
+        "options": []
+      },
+      {
+        "id": "3",
+        "type": "multiple",
+        "text": "How did you contact our support team?",
+        "options": [
+          "Phone",
+          "Email",
+          "Live Chat",
+          "Support Ticket",
+          "In-Person"
+        ]
+      },
+      {
+        "id": "4",
+        "type": "text",
+        "text": "Any suggestions for improving our support service?",
+        "options": []
+      }
+    ],
+    "clientIds": ["7", "8"],
+    "isActive": true,
+    "createdAt": "2024-01-14T11:15:00Z"
+  },
+  {
+    "id": "4",
+    "title": "Product Feature Feedback",
+    "questions": [
+      {
+        "id": "1",
+        "type": "scale",
+        "text": "Rate the ease of use of our product (1-10):",
+        "options": []
+      },
+      {
+        "id": "2",
+        "type": "multiple",
+        "text": "Which features do you use most frequently?",
+        "options": [
+          "Dashboard",
+          "Reporting",
+          "Analytics",
+          "User Management",
+          "Integrations"
+        ]
+      },
+      {
+        "id": "3",
+        "type": "text",
+        "text": "What new features would you like to see?",
+        "options": []
+      }
+    ],
+    "clientIds": ["1", "3", "5", "7"],
+    "isActive": false,
+    "createdAt": "2024-01-16T16:45:00Z"
+  },
+  {
+    "id": "5",
+    "title": "Onboarding Experience Review",
+    "questions": [
+      {
+        "id": "1",
+        "type": "rating",
+        "text": "How would you rate your onboarding experience?",
+        "options": []
+      },
+      {
+        "id": "2",
+        "type": "rating",
+        "text": "How clear were the setup instructions?",
+        "options": []
+      },
+      {
+        "id": "3",
+        "type": "scale",
+        "text": "How long did the onboarding process take? (in days)",
+        "options": []
+      },
+      {
+        "id": "4",
+        "type": "text",
+        "text": "What part of onboarding was most challenging?",
+        "options": []
+      }
+    ],
+    "clientIds": ["9", "10"],
+    "isActive": true,
+    "createdAt": "2024-01-18T08:20:00Z"
+  }
+]

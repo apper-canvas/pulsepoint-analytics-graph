@@ -1,0 +1,272 @@
+[
+  {
+    "id": "1",
+    "clientId": "1",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 4},
+      {"questionId": "2", "value": 5},
+      {"questionId": "3", "value": 4}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Great service overall, very satisfied with the response time and quality."}
+    ],
+    "metadata": {
+      "source": "email_survey",
+      "userAgent": "web",
+      "location": "New York, NY"
+    }
+  },
+  {
+    "id": "2",
+    "clientId": "1",
+    "timestamp": "2024-01-16T14:20:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 5},
+      {"questionId": "2", "value": 4},
+      {"questionId": "3", "value": 5}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Excellent communication and professional delivery. Highly recommended!"}
+    ],
+    "metadata": {
+      "source": "website_widget",
+      "userAgent": "mobile",
+      "location": "Los Angeles, CA"
+    }
+  },
+  {
+    "id": "3",
+    "clientId": "2",
+    "timestamp": "2024-01-17T09:15:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 3},
+      {"questionId": "2", "value": 3},
+      {"questionId": "3", "value": 4}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Service was adequate but could be improved in terms of speed and clarity."}
+    ],
+    "metadata": {
+      "source": "email_survey",
+      "userAgent": "web",
+      "location": "Chicago, IL"
+    }
+  },
+  {
+    "id": "4",
+    "clientId": "3",
+    "timestamp": "2024-01-18T16:45:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 5},
+      {"questionId": "2", "value": 5},
+      {"questionId": "3", "value": 5}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Outstanding experience! The team exceeded all expectations and delivered amazing results."}
+    ],
+    "metadata": {
+      "source": "sms_survey",
+      "userAgent": "mobile",
+      "location": "Miami, FL"
+    }
+  },
+  {
+    "id": "5",
+    "clientId": "2",
+    "timestamp": "2024-01-19T11:30:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 4},
+      {"questionId": "2", "value": 4},
+      {"questionId": "3", "value": 3}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Good service overall, but there's room for improvement in the initial consultation phase."}
+    ],
+    "metadata": {
+      "source": "website_widget",
+      "userAgent": "web",
+      "location": "Seattle, WA"
+    }
+  },
+  {
+    "id": "6",
+    "clientId": "4",
+    "timestamp": "2024-01-20T13:10:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 2},
+      {"questionId": "2", "value": 3},
+      {"questionId": "3", "value": 2}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Not satisfied with the service quality. Response time was slow and communication unclear."}
+    ],
+    "metadata": {
+      "source": "email_survey",
+      "userAgent": "web",
+      "location": "Austin, TX"
+    }
+  },
+  {
+    "id": "7",
+    "clientId": "5",
+    "timestamp": "2024-01-21T08:45:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 5},
+      {"questionId": "2", "value": 4},
+      {"questionId": "3", "value": 5}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Fantastic work! Professional, timely, and exactly what we needed. Will definitely use again."}
+    ],
+    "metadata": {
+      "source": "website_widget",
+      "userAgent": "mobile",
+      "location": "Denver, CO"
+    }
+  },
+  {
+    "id": "8",
+    "clientId": "1",
+    "timestamp": "2024-01-22T15:20:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 4},
+      {"questionId": "2", "value": 5},
+      {"questionId": "3", "value": 4}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Very pleased with the outcome. The team was responsive and delivered quality work on time."}
+    ],
+    "metadata": {
+      "source": "sms_survey",
+      "userAgent": "mobile",
+      "location": "Boston, MA"
+    }
+  },
+  {
+    "id": "9",
+    "clientId": "3",
+    "timestamp": "2024-01-23T12:00:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 3},
+      {"questionId": "2", "value": 4},
+      {"questionId": "3", "value": 3}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Decent service but not exceptional. Meeting expectations but not going above and beyond."}
+    ],
+    "metadata": {
+      "source": "email_survey",
+      "userAgent": "web",
+      "location": "Portland, OR"
+    }
+  },
+  {
+    "id": "10",
+    "clientId": "6",
+    "timestamp": "2024-01-24T17:30:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 5},
+      {"questionId": "2", "value": 5},
+      {"questionId": "3", "value": 4}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Impressed with the level of detail and care put into this project. Highly professional team."}
+    ],
+    "metadata": {
+      "source": "website_widget",
+      "userAgent": "web",
+      "location": "San Francisco, CA"
+    }
+  },
+  {
+    "id": "11",
+    "clientId": "4",
+    "timestamp": "2024-01-25T10:15:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 3},
+      {"questionId": "2", "value": 2},
+      {"questionId": "3", "value": 3}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Service needs improvement. Had to follow up multiple times for updates and clarifications."}
+    ],
+    "metadata": {
+      "source": "email_survey",
+      "userAgent": "mobile",
+      "location": "Phoenix, AZ"
+    }
+  },
+  {
+    "id": "12",
+    "clientId": "7",
+    "timestamp": "2024-01-26T14:45:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 4},
+      {"questionId": "2", "value": 4},
+      {"questionId": "3", "value": 5}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Good experience overall. The final deliverable exceeded expectations despite some initial delays."}
+    ],
+    "metadata": {
+      "source": "sms_survey",
+      "userAgent": "web",
+      "location": "Atlanta, GA"
+    }
+  },
+  {
+    "id": "13",
+    "clientId": "5",
+    "timestamp": "2024-01-27T09:20:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 5},
+      {"questionId": "2", "value": 5},
+      {"questionId": "3", "value": 5}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Perfect execution from start to finish. This is exactly the kind of service we were looking for."}
+    ],
+    "metadata": {
+      "source": "website_widget",
+      "userAgent": "mobile",
+      "location": "Nashville, TN"
+    }
+  },
+  {
+    "id": "14",
+    "clientId": "2",
+    "timestamp": "2024-01-28T16:10:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 4},
+      {"questionId": "2", "value": 3},
+      {"questionId": "3", "value": 4}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Solid work delivered. Some communication gaps but the end result was satisfactory."}
+    ],
+    "metadata": {
+      "source": "email_survey",
+      "userAgent": "web",
+      "location": "Dallas, TX"
+    }
+  },
+  {
+    "id": "15",
+    "clientId": "8",
+    "timestamp": "2024-01-29T11:50:00Z",
+    "ratings": [
+      {"questionId": "1", "value": 5},
+      {"questionId": "2", "value": 4},
+      {"questionId": "3", "value": 5}
+    ],
+    "textResponses": [
+      {"questionId": "4", "text": "Excellent service with great attention to detail. The team was proactive and solution-oriented."}
+    ],
+    "metadata": {
+      "source": "website_widget",
+      "userAgent": "mobile",
+      "location": "Minneapolis, MN"
+    }
+  }
+]
