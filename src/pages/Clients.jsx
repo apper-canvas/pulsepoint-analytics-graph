@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from 'react-toastify'
 import ApperIcon from '../components/ApperIcon'
 import clientService from '../services/api/clientService'
 
 const Clients = () => {
+const Clients = () => {
+  const navigate = useNavigate()
   const [clients, setClients] = useState([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
@@ -340,12 +343,21 @@ const Clients = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 to-surface-100">
-      {/* Header */}
+{/* Header */}
       <div className="bg-white border-b border-surface-200 p-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-surface-900 mb-2">Client Management</h1>
+              <div className="flex items-center space-x-4 mb-2">
+                <button
+                  onClick={() => navigate(-1)}
+                  className="p-2 hover:bg-surface-100 rounded-lg transition-colors flex items-center space-x-2 text-surface-600 hover:text-surface-900"
+                >
+                  <ApperIcon name="ArrowLeft" className="h-5 w-5" />
+                  <span className="hidden sm:inline">Back</span>
+                </button>
+                <h1 className="text-2xl font-bold text-surface-900">Client Management</h1>
+              </div>
               <p className="text-surface-600">Manage your client relationships and feedback data</p>
             </div>
             <div className="flex items-center space-x-3 mt-4 md:mt-0">
