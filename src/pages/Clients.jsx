@@ -6,7 +6,6 @@ import ApperIcon from '../components/ApperIcon'
 import clientService from '../services/api/clientService'
 
 const Clients = () => {
-const Clients = () => {
   const navigate = useNavigate()
   const [clients, setClients] = useState([])
   const [loading, setLoading] = useState(true)
@@ -341,9 +340,9 @@ const Clients = () => {
     )
   }
 
-  return (
+return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 to-surface-100">
-{/* Header */}
+      {/* Header */}
       <div className="bg-white border-b border-surface-200 p-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
