@@ -1,65 +1,146 @@
-import feedbackData from '../mockData/feedback.json'
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-
 class FeedbackService {
   constructor() {
-    this.data = [...feedbackData]
+    const { ApperClient } = window.ApperSDK
+    this.apperClient = new ApperClient({
+      apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+      apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+    })
+    this.tableName = 'feedback'
+    this.allFields = [
+      'Name', 'Tags', 'Owner', 'CreatedOn', 'CreatedBy', 'ModifiedOn', 'ModifiedBy',
+      'form_id', 'submitted_at', 'ratings', 'client_id'
+    ]
+    this.updateableFields = ['Name', 'Tags', 'Owner', 'form_id', 'submitted_at', 'ratings', 'client_id']
   }
 
-  async getAll() {
-    await delay(300)
-    return [...this.data]
+  async getAll(params = {}) {
+    try {
+      const queryParams = {
+        fields: this.allFields,
+        ...params
+      }
+      
+      const response = await this.apperClient.fetchRecords(this.tableName, queryParams)
+      return response?.data || []
+    } catch (error) {
+      console.error('Error fetching feedback:', error)
+      throw error
+    }
   }
 
   async getById(id) {
-    await delay(200)
-    const item = this.data.find(feedback => feedback.id === id)
-    return item ? { ...item } : null
+    try {
+      const params = { fields: this.allFields }
+      const response = await this.apperClient.getRecordById(this.tableName, id, params)
+      return response?.data || null
+    } catch (error) {
+      console.error(`Error fetching feedback with ID ${id}:`, error)
+      throw error
+    }
   }
 
-  async create(feedback) {
-    await delay(400)
-    const newFeedback = {
-      ...feedback,
-      id: Date.now().toString(),
-      timestamp: new Date().toISOString()
+  async create(feedbackData) {
+    try {
+      // Filter to only include updateable fields
+      const filteredData = {}
+      this.updateableFields.forEach(field => {
+        if (feedbackData[field] !== undefined) {
+          filteredData[field] = feedbackData[field]
+        }
+      })
+
+      const params = { records: [filteredData] }
+      const response = await this.apperClient.createRecord(this.tableName, params)
+      
+      if (response?.success && response?.results?.[0]?.success) {
+        return response.results[0].data
+      } else {
+        throw new Error(response?.results?.[0]?.message || 'Failed to create feedback')
+      }
+    } catch (error) {
+      console.error('Error creating feedback:', error)
+      throw error
     }
-    this.data.push(newFeedback)
-    return { ...newFeedback }
   }
 
   async update(id, feedbackData) {
-    await delay(350)
-    const index = this.data.findIndex(feedback => feedback.id === id)
-    if (index !== -1) {
-      this.data[index] = { ...this.data[index], ...feedbackData }
-      return { ...this.data[index] }
+    try {
+      // Filter to only include updateable fields plus Id
+      const filteredData = { Id: id }
+      this.updateableFields.forEach(field => {
+        if (feedbackData[field] !== undefined) {
+          filteredData[field] = feedbackData[field]
+        }
+      })
+
+      const params = { records: [filteredData] }
+      const response = await this.apperClient.updateRecord(this.tableName, params)
+      
+      if (response?.success && response?.results?.[0]?.success) {
+        return response.results[0].data
+      } else {
+        throw new Error(response?.results?.[0]?.message || 'Failed to update feedback')
+      }
+    } catch (error) {
+      console.error('Error updating feedback:', error)
+      throw error
     }
-    throw new Error('Feedback not found')
   }
 
   async delete(id) {
-    await delay(250)
-    const index = this.data.findIndex(feedback => feedback.id === id)
-    if (index !== -1) {
-      const deleted = this.data.splice(index, 1)[0]
-      return { ...deleted }
+    try {
+      const params = { RecordIds: Array.isArray(id) ? id : [id] }
+      const response = await this.apperClient.deleteRecord(this.tableName, params)
+      
+      if (response?.success) {
+        return true
+      } else {
+        throw new Error('Failed to delete feedback')
+      }
+    } catch (error) {
+      console.error('Error deleting feedback:', error)
+      throw error
     }
-    throw new Error('Feedback not found')
   }
 
   async getByClient(clientId) {
-    await delay(300)
-    return this.data.filter(feedback => feedback.clientId === clientId).map(item => ({ ...item }))
+    try {
+      const params = {
+        fields: this.allFields,
+        where: [{
+          fieldName: 'client_id',
+          operator: 'ExactMatch',
+          values: [clientId]
+        }]
+      }
+      const response = await this.apperClient.fetchRecords(this.tableName, params)
+      return response?.data || []
+    } catch (error) {
+      console.error('Error fetching feedback by client:', error)
+      throw error
+    }
   }
 
   async getByDateRange(startDate, endDate) {
-    await delay(300)
-    return this.data.filter(feedback => {
-      const date = new Date(feedback.timestamp)
-      return date >= new Date(startDate) && date <= new Date(endDate)
-    }).map(item => ({ ...item }))
+    try {
+      const params = {
+        fields: this.allFields,
+        where: [{
+          fieldName: 'submitted_at',
+          operator: 'GreaterThanOrEqualTo',
+          values: [startDate]
+        }, {
+          fieldName: 'submitted_at',
+          operator: 'LessThanOrEqualTo',
+          values: [endDate]
+        }]
+      }
+      const response = await this.apperClient.fetchRecords(this.tableName, params)
+      return response?.data || []
+    } catch (error) {
+      console.error('Error fetching feedback by date range:', error)
+      throw error
+    }
   }
 }
 
