@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import MainFeature from '../components/MainFeature'
 import ApperIcon from '../components/ApperIcon'
 import feedbackService from '../services/api/feedbackService'
 import clientService from '../services/api/clientService'
 
 const Home = () => {
+const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [dashboardData, setDashboardData] = useState({
@@ -62,13 +64,13 @@ const Home = () => {
     document.documentElement.classList.toggle('dark')
   }
 
-  const navigationItems = [
-    { icon: 'BarChart3', label: 'Dashboard', active: true },
-    { icon: 'MessageSquare', label: 'Feedback Forms' },
-    { icon: 'TrendingUp', label: 'Analytics' },
-    { icon: 'Users', label: 'Clients' },
-    { icon: 'FileText', label: 'Reports' },
-    { icon: 'Settings', label: 'Settings' }
+const navigationItems = [
+    { icon: 'BarChart3', label: 'Dashboard', active: true, path: '/' },
+    { icon: 'MessageSquare', label: 'Feedback Forms', path: '/feedback-forms' },
+    { icon: 'TrendingUp', label: 'Analytics', path: '/analytics' },
+    { icon: 'Users', label: 'Clients', path: '/clients' },
+    { icon: 'FileText', label: 'Reports', path: '/reports' },
+    { icon: 'Settings', label: 'Settings', path: '/settings' }
   ]
 
   const MetricCard = ({ title, value, change, icon, color, loading }) => (
@@ -156,14 +158,14 @@ const Home = () => {
             className="fixed left-0 top-16 h-full w-60 bg-white/90 glass-morphic border-r border-surface-200 z-40 lg:translate-x-0"
           >
             <nav className="p-4 space-y-2">
-              {navigationItems.map((item, index) => (
-                <motion.a
+{navigationItems.map((item, index) => (
+                <motion.button
                   key={item.label}
-                  href="#"
+                  onClick={() => navigate(item.path)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                     item.active
                       ? 'bg-gradient-to-r from-primary to-primary-dark text-white shadow-lg'
                       : 'text-surface-600 hover:bg-surface-50 hover:text-surface-900'
@@ -171,7 +173,7 @@ const Home = () => {
                 >
                   <ApperIcon name={item.icon} className="h-5 w-5" />
                   <span className="font-medium">{item.label}</span>
-                </motion.a>
+                </motion.button>
               ))}
             </nav>
           </motion.aside>
