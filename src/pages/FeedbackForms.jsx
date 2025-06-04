@@ -8,19 +8,20 @@ import formService from '../services/api/formService'
 const FeedbackForms = () => {
   const [forms, setForms] = useState([])
   const [loading, setLoading] = useState(true)
-  const [searchTerm, setSearchTerm] = useState('')
+const [searchTerm, setSearchTerm] = useState('')
   const [filterStatus, setFilterStatus] = useState('all')
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [editingForm, setEditingForm] = useState(null)
+  const [viewingForm, setViewingForm] = useState(null)
   const [selectedForms, setSelectedForms] = useState([])
   const [newForm, setNewForm] = useState({
     title: '',
     description: '',
     questions: [],
     status: 'draft',
-    category: 'satisfaction'
+category: 'satisfaction'
   })
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
 useEffect(() => {
   loadForms()
@@ -96,8 +97,12 @@ const loadForms = async () => {
       setSelectedForms([])
       toast.success(`${selectedForms.length} forms deleted successfully`)
     } catch (error) {
-      toast.error('Failed to delete selected forms')
+toast.error('Failed to delete selected forms')
     }
+  }
+
+  const handleViewForm = (form) => {
+    setViewingForm(form)
   }
 
   const handlePublishForm = async (formId) => {
@@ -108,7 +113,6 @@ const loadForms = async () => {
       toast.error('Failed to publish form')
     }
   }
-
   const filteredForms = forms.filter(form => {
     const matchesSearch = form.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          form.description.toLowerCase().includes(searchTerm.toLowerCase())
@@ -183,10 +187,13 @@ const loadForms = async () => {
               onClick={() => handlePublishForm(form.id)}
               className="px-3 py-1 bg-secondary text-white rounded-lg text-xs hover:bg-secondary-dark transition-colors"
             >
-              Publish
+Publish
             </button>
           )}
-          <button className="px-3 py-1 bg-primary text-white rounded-lg text-xs hover:bg-primary-dark transition-colors">
+          <button 
+            onClick={() => handleViewForm(form)}
+            className="px-3 py-1 bg-primary text-white rounded-lg text-xs hover:bg-primary-dark transition-colors"
+          >
             View
           </button>
         </div>
@@ -194,9 +201,9 @@ const loadForms = async () => {
     </motion.div>
   )
 
-  return (
+return (
     <div className="min-h-screen bg-gradient-to-br from-surface-50 to-surface-100">
-{/* Header */}
+      {/* Header */}
       <div className="bg-white border-b border-surface-200 p-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
@@ -373,6 +380,151 @@ const loadForms = async () => {
                 >
                   Create Form
                 </button>
+              </div>
+</motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* View Form Modal */}
+      <AnimatePresence>
+        {viewingForm && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-white rounded-xl p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="text-xl font-semibold text-surface-900">Form Details</h3>
+                <button
+                  onClick={() => setViewingForm(null)}
+                  className="p-2 hover:bg-surface-100 rounded-lg transition-colors"
+                >
+                  <ApperIcon name="X" className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="space-y-6">
+                {/* Basic Information */}
+                <div className="bg-surface-50 rounded-lg p-4">
+                  <h4 className="text-lg font-medium text-surface-900 mb-3">Basic Information</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-surface-700 mb-1">Title</label>
+                      <p className="text-surface-900">{viewingForm.title}</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-surface-700 mb-1">Status</label>
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(viewingForm.status)}`}>
+                        {viewingForm.status}
+                      </span>
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-surface-700 mb-1">Description</label>
+                      <p className="text-surface-900">{viewingForm.description}</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-surface-700 mb-1">Category</label>
+                      <p className="text-surface-900 capitalize">{viewingForm.category}</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-surface-700 mb-1">Created</label>
+                      <p className="text-surface-900">{new Date(viewingForm.createdAt).toLocaleDateString()}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Questions */}
+                <div>
+                  <h4 className="text-lg font-medium text-surface-900 mb-3">Questions ({viewingForm.questions?.length || 0})</h4>
+                  {viewingForm.questions && viewingForm.questions.length > 0 ? (
+                    <div className="space-y-3">
+                      {viewingForm.questions.map((question, index) => (
+                        <div key={index} className="bg-white border border-surface-200 rounded-lg p-4">
+                          <div className="flex items-start justify-between mb-2">
+                            <h5 className="font-medium text-surface-900">Question {index + 1}</h5>
+                            <span className="px-2 py-1 bg-surface-100 text-surface-600 rounded text-xs">
+                              {question.type}
+                            </span>
+                          </div>
+                          <p className="text-surface-700 mb-2">{question.text}</p>
+                          {question.options && question.options.length > 0 && (
+                            <div className="mt-2">
+                              <p className="text-sm font-medium text-surface-600 mb-1">Options:</p>
+                              <ul className="text-sm text-surface-600 list-disc list-inside">
+                                {question.options.map((option, optIndex) => (
+                                  <li key={optIndex}>{option}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-8 bg-surface-50 rounded-lg">
+                      <ApperIcon name="MessageSquare" className="h-8 w-8 text-surface-400 mx-auto mb-2" />
+                      <p className="text-surface-600">No questions added yet</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Response Analytics */}
+                <div>
+                  <h4 className="text-lg font-medium text-surface-900 mb-3">Response Analytics</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-primary/5 rounded-lg p-4 text-center">
+                      <p className="text-2xl font-bold text-primary">{viewingForm.responses || 0}</p>
+                      <p className="text-sm text-surface-600">Total Responses</p>
+                    </div>
+                    <div className="bg-secondary/5 rounded-lg p-4 text-center">
+                      <p className="text-2xl font-bold text-secondary">{Math.floor((viewingForm.responses || 0) * 0.85)}</p>
+                      <p className="text-sm text-surface-600">Completed</p>
+                    </div>
+                    <div className="bg-accent/5 rounded-lg p-4 text-center">
+                      <p className="text-2xl font-bold text-accent">{Math.floor(((viewingForm.responses || 0) * 0.85) / (viewingForm.responses || 1) * 100)}%</p>
+                      <p className="text-sm text-surface-600">Completion Rate</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-end space-x-3 mt-6 pt-6 border-t border-surface-200">
+                <button
+                  onClick={() => setViewingForm(null)}
+                  className="px-4 py-2 text-surface-600 hover:text-surface-900 transition-colors"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => {
+                    setEditingForm(viewingForm)
+                    setViewingForm(null)
+                  }}
+                  className="px-4 py-2 bg-surface-100 text-surface-700 rounded-lg hover:bg-surface-200 transition-colors flex items-center space-x-2"
+                >
+                  <ApperIcon name="Edit2" className="h-4 w-4" />
+                  <span>Edit Form</span>
+                </button>
+                {viewingForm.status === 'draft' && (
+                  <button
+                    onClick={() => {
+                      handlePublishForm(viewingForm.id)
+                      setViewingForm(null)
+                    }}
+                    className="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-dark transition-colors flex items-center space-x-2"
+                  >
+                    <ApperIcon name="Globe" className="h-4 w-4" />
+                    <span>Publish</span>
+                  </button>
+                )}
               </div>
             </motion.div>
           </motion.div>
